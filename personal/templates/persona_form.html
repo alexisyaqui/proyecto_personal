@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block titulo %} {% endblock %}
+
+
+{% block content %}
+<h1>registro de personas</h1>
+
+
+<form action="" method="post">
+  <div class="card card-body">
+    <div class="row">
+      <div class="col-4">
+        {% csrf_token %}
+        {{form.prim_nombre|as_crispy_field}}
+        {{form.prim_apellido|as_crispy_field}}
+        {{form.dpi|as_crispy_field}}
+        {{form.fecha_nac|as_crispy_field}}
+        {{form.email|as_crispy_field}}
+        {{form.aldea|as_crispy_field}}
+        {{form.departamento|as_crispy_field}}
+        {{form.genero|as_crispy_field}}
+      </div>
+
+      <div class="col-4">
+        {{form.seg_nombre|as_crispy_field}}
+        {{form.seg_apellido|as_crispy_field}}
+        {{form.nit|as_crispy_field}}
+        {{form.telefono|as_crispy_field}}
+        {{form.direccion|as_crispy_field}}
+        {{form.municipio|as_crispy_field}}
+        {{form.foto|as_crispy_field}}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+</form>
+{% endblock %}
