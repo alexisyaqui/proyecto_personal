@@ -1,0 +1,46 @@
+{% extends './base/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block titulo %} VISTA DE PERSONAS {% endblock %}
+
+
+{% block content %}
+
+<h1>VISTAS DE PERSONAS </h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">PRIMER NOMBRE</th>
+        <th scope="col">SEGUNDO NOMBRE</th>
+        <th scope="col">PRIMER APELLIDO</th>
+        <th scope="col">SEGUNDO APELLIDO</th>
+        <th scope="col">DPI</th>
+        <th scope="col">NIT</th>
+        <th scope="col">FECHA NACIMIENTO</th>
+        <th scope="col">DIRECCION</th>
+        <th scope="col">TELEFONO</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">FOTO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          {%for persona in all_object %}
+        <th scope="row">{{persona.id}}</th>
+        <td scope="row">{{persona.prim_nombre}}</td>
+        <td>{{persona.seg_nombre}}</td>
+        <td>{{persona.prim_apellido}}</td>
+        <td>{{persona.seg_nombre}}</td>
+        <td>{{persona.dpi}}</td>
+
+
+
+        {% endfor %}
+      </tr>
+    
+    </tbody>
+  </table>
+
+{% endblock %}

@@ -1,17 +1,29 @@
 
-from cProfile import label
-from attr import attr, attrs
 from django import forms
-from matplotlib import widgets
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from .models import persona
 
+
 class PersonaForm(forms.ModelForm):
-    class Meta:
-        model = persona
-        fields = ('prim_nombre', 'seg_nombre', 'prim_apellido', 'seg_apellido', 'dpi', 'nit', 'fecha_nac', 'telefono', 'email', 
-                    'direccion', 'aldea', 'municipio', 'departamento', 'genero', 'foto')
+
+    prim_nombre = forms.CharField(label='PRIMER NOMBRE', max_length=50)
+    seg_nombre = forms.CharField(max_length=50)
+    prim_apellido = forms.CharField(max_length=50)
+    seg_apellido = forms.CharField(max_length=50)
+    dpi = forms.IntegerField()
+    nit = forms.IntegerField()
+    fecha_nac = forms.DateField()
+    telefono = forms.IntegerField()
+    email = forms.EmailField()
+    direccion = forms.CharField(max_length=450)
+    aldea = forms.CharField(max_length=250)
+    municipio = forms.CharField(max_length=250)
+    departamento = forms.CharField(max_length=250)
+    genero = forms.CharField(max_length=12)
+    foto = forms.ImageField()
+ 
+
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -20,42 +32,3 @@ class PersonaForm(forms.ModelForm):
         self.helper.add_input(Submit('Submit', 'GUARDAR PERSONA'))
 
 
-"""""
-        labels= {
-            'prim_nombre': 'Primer Nombre',
-            'seg_nombre': 'Segundo Nombre',
-            'prim_apellido': 'Primer Apellido',
-            'seg_apellido': 'Segundo Apellido',
-            'dpi': 'Documento Personal de Identificacion (DPI)',
-            'nit': 'Numero de Identificación Tributario (NIT)',
-            'fecha_nac': 'Fecha de Nacimiento',
-            'telefono': 'Numero de Telefono',
-            'email': 'Correo Electronico',
-            'direccion': 'Direccion Domiciliar',
-            'aldea': 'Aldea',
-            'municipio': 'Municipio',
-            'departamento': 'Departamento',
-            'genero': 'Genero',
-            'foto': 'Fotografia personal',
-
-        }
-
-        widgets= {
-            'prim_nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'seg_nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'prim_apellido': forms.TextInput(attrs={'class': 'form-control'}),
-            'seg_apellido':  forms.TextInput(attrs={'class': 'form-control'}),
-            'dpi':  forms.TextInput(attrs={'class': 'form-control'}),
-            'nit': forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha_nac': forms.DateField(attrs={'class': 'form-control'}),
-            'telefono': 'Numero de Telefono',
-            'email': 'Correo Electronico',
-            'direccion': 'Direccion Domiciliar',
-            'aldea': 'Aldea',
-            'municipio': 'Municipio',
-            'departamento': 'Departamento',
-            'genero': 'Genero',
-            'foto': 'Fotografia personal',
-
-        }
-"""

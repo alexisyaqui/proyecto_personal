@@ -10,10 +10,33 @@
     <title>{% block titulo %} {% endblock %}</title>
   </head>
   <body>
-          {% block content %}
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'inicio' %}">INICIO</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">PERSONAL</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">RENGLON 011</a>
+          <a class="dropdown-item" href="#">RENGLON 022</a>
+          <a class="dropdown-item" href="#">BAJAS</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">MOVIMIENTOS</a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">INFORMACION</a>
+      </li>
+    </ul>
+      {% block content %}
 
 
-          {% endblock %}
+      {% endblock %}
         </div>
       </div>
     </div>
